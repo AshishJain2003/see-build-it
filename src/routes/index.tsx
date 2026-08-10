@@ -1,24 +1,58 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ClientOnly } from "@tanstack/react-router";
+import { lazy, Suspense } from "react";
+import { Hero } from "@/components/Hero";
+import { PolaroidBoard } from "@/components/PolaroidBoard";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const Scrapbook = lazy(() => import("@/components/Scrapbook"));
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Happy Birthday Sweety — A Scrapbook Of Us" },
+      {
+        name: "description",
+        content:
+          "A birthday page made with love: a live age counter, a trail of memories, polaroids and a flip-through scrapbook.",
+      },
+      { property: "og:title", content: "Happy Birthday Sweety" },
+      {
+        property: "og:description",
+        content:
+          "A birthday page made with love: a live age counter, memories, polaroids and a flip-through scrapbook.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="h-screen w-full snap-y snap-mandatory select-none overflow-x-hidden overflow-y-scroll scroll-smooth bg-zinc-50">
+      <section className="relative z-10 h-screen w-full shrink-0 snap-start snap-always">
+        <iframe
+          src="/birthday.html"
+          title="Birthday Reveal"
+          allow="autoplay"
+          style={{ width: "100%", height: "100%", border: "none", display: "block" }}
+        />
+      </section>
+
+      <section className="relative z-10 h-screen w-full shrink-0 snap-start snap-always overflow-hidden">
+        <Hero />
+      </section>
+
+      <section className="relative z-10 h-screen w-full shrink-0 snap-start snap-always overflow-hidden">
+        <PolaroidBoard />
+      </section>
+
+      <section className="relative z-10 h-screen w-full shrink-0 snap-start snap-always">
+        <ClientOnly fallback={<div className="h-screen w-full bg-zinc-50" />}>
+          <Suspense fallback={<div className="h-screen w-full bg-zinc-50" />}>
+            <Scrapbook />
+          </Suspense>
+        </ClientOnly>
+      </section>
+    </main>
   );
 }

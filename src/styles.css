@@ -132,6 +132,75 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+:root {
+  --paper: #fafaf7;
+  --ink: #14140f;
+  --mute: #8a8a80;
+  --body-text: #4a4a42;
+  --rule: #9c7a3f;
+  --gold: #f59e0b;
+  --board: #d9d3c7;
+  --font-display: "Geist", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Geist Mono", "Space Mono", monospace;
+  --font-hand: "Caveat", cursive;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-body: var(--body-text);
+  --color-rule: var(--rule);
+  --color-accent-gold: var(--gold);
+  --color-board: var(--board);
+}
+
+.hero-display {
+  font-family: var(--font-display);
+}
+.hero-body {
+  font-family: var(--font-display);
+}
+.hero-mono {
+  font-family: var(--font-mono);
+}
+.hand {
+  font-family: var(--font-hand);
+}
+
+.marquee-item {
+  animation-name: marquee-travel;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: offset-distance;
+  backface-visibility: hidden;
+}
+
+@keyframes marquee-travel {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+.board-grid {
+  background-image:
+    linear-gradient(rgba(120, 110, 90, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 110, 90, 0.12) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.board-vignette {
+  background: radial-gradient(circle, transparent 30%, rgba(0, 0, 0, 0.08));
+}
+
+.scrapbook .book-page {
+  position: relative;
+  overflow: hidden;
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
@@ -140,5 +209,12 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-display);
   }
+}
+
+
+.scrapbook .book-page[data-density="hard"],
+.scrapbook .book-page[data-density="hard"] > * {
+  overflow: visible;
 }
