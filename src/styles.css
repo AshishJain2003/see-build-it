@@ -213,3 +213,8 @@
   }
 }
 
+
+.scrapbook .book-page[data-density="hard"],
+.scrapbook .book-page[data-density="hard"] > * {
+  overflow: visible;
+}
