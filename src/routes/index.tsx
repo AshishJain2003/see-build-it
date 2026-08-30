@@ -29,6 +29,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
+    <CountdownGate>
     <main className="h-screen w-full snap-y snap-mandatory select-none overflow-x-hidden overflow-y-scroll scroll-smooth bg-zinc-50">
       <section className="relative z-10 h-screen w-full shrink-0 snap-start snap-always">
         <iframe
