@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 
-// Target: 14 September, 12:00 AM (local time of the visitor)
-const TARGET = new Date(2026, 8, 14, 0, 0, 0, 0).getTime();
+// Target: 14 September 2026, 12:00 AM IST (Delhi) = 13 Sept 2026 18:30 UTC
+const TARGET = new Date("2026-09-13T18:30:00Z").getTime();
 
 function parts(ms: number) {
   const s = Math.max(0, Math.floor(ms / 1000));
