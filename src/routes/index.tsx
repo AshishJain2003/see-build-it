@@ -44,7 +44,7 @@ function Index() {
         <Hero />
       </section>
 
-      <section className="relative z-10 min-h-screen w-full shrink-0 snap-start snap-always overflow-hidden">
+      <section className="relative z-10 h-screen w-full shrink-0 snap-start snap-always overflow-hidden">
         <PolaroidBoard />
       </section>
 
