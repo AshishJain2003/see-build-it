@@ -10,13 +10,13 @@ const Scrapbook = lazy(() => import("@/components/Scrapbook"));
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Happy Birthday Sweety — A Scrapbook Of Us" },
+      { title: "Happy Birthday Madam Jii — A Scrapbook Of Us" },
       {
         name: "description",
         content:
           "A birthday page made with love: a live age counter, a trail of memories, polaroids and a flip-through scrapbook.",
       },
-      { property: "og:title", content: "Happy Birthday Sweety" },
+      { property: "og:title", content: "Happy Birthday Madam Jii" },
       {
         property: "og:description",
         content:

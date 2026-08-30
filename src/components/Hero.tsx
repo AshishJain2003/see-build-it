@@ -47,7 +47,7 @@ export function Hero() {
           <br />
           <span className="font-bold">Birthday</span>
           <br />
-          <span className="font-bold text-accent-gold">Sweety</span>
+          <span className="font-bold text-accent-gold">Madam Jii</span>
         </h1>
         <div className="mt-6 h-px w-16 bg-rule" />
         <p className="hero-body mt-6 max-w-sm text-base leading-relaxed text-body">
