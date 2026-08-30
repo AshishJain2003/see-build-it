@@ -3,6 +3,7 @@ import { ClientOnly } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { Hero } from "@/components/Hero";
 import { PolaroidBoard } from "@/components/PolaroidBoard";
+import { CountdownGate } from "@/components/CountdownGate";
 
 const Scrapbook = lazy(() => import("@/components/Scrapbook"));
 
@@ -28,6 +29,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
+    <CountdownGate>
     <main className="h-screen w-full snap-y snap-mandatory select-none overflow-x-hidden overflow-y-scroll scroll-smooth bg-zinc-50">
       <section className="relative z-10 h-screen w-full shrink-0 snap-start snap-always">
         <iframe
@@ -54,5 +56,6 @@ function Index() {
         </ClientOnly>
       </section>
     </main>
+    </CountdownGate>
   );
 }
