@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 
-// Target: 14 September 2026, 12:00 AM IST (Delhi) = 13 Sept 2026 18:30 UTC
-const TARGET = new Date("2026-09-13T18:30:00Z").getTime();
+// TEMPORARY: 10-min test — will revert to 14 Sep 2026 after verifying Vercel deploy
+const TARGET = new Date("2026-08-30T18:56:00Z").getTime();
 
 function parts(ms: number) {
   const s = Math.max(0, Math.floor(ms / 1000));
@@ -46,8 +46,8 @@ export function CountdownGate({ children }: { children: ReactNode }) {
   return (
     <main className="relative flex min-h-screen w-full flex-col overflow-hidden bg-paper">
       <div className="hero-mono flex items-center justify-between px-8 pt-8 text-[11px] uppercase tracking-[0.25em] text-mute sm:px-14">
-        <span>Sep 14</span>
-        <span>00:00</span>
+        <span>Aug 31 (test)</span>
+        <span>00:26</span>
       </div>
 
       <div className="flex flex-1 flex-col justify-center px-8 sm:px-14">
