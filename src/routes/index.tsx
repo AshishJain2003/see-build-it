@@ -56,5 +56,6 @@ function Index() {
         </ClientOnly>
       </section>
     </main>
+    </CountdownGate>
   );
 }
