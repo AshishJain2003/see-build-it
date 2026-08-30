@@ -3,6 +3,7 @@ import { ClientOnly } from "@tanstack/react-router";
 import { lazy, Suspense } from "react";
 import { Hero } from "@/components/Hero";
 import { PolaroidBoard } from "@/components/PolaroidBoard";
+import { CountdownGate } from "@/components/CountdownGate";
 
 const Scrapbook = lazy(() => import("@/components/Scrapbook"));
 
