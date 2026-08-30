@@ -77,12 +77,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Happy Birthday Madam Jii" },
+      { title: "Madam Jii Birthday" },
       {
         name: "description",
         content: "A birthday scrapbook page: live age counter, memories and polaroids.",
       },
-      { property: "og:title", content: "Happy Birthday Madam Jii" },
+      { property: "og:title", content: "Madam Jii Birthday" },
       {
         property: "og:description",
         content: "A birthday scrapbook page: live age counter, memories and polaroids.",
@@ -101,7 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
 
