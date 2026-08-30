@@ -77,12 +77,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Madam Jii Birthday" },
+      { title: "Happy Birthday Madam Jii" },
       {
         name: "description",
         content: "A birthday scrapbook page: live age counter, memories and polaroids.",
       },
-      { property: "og:title", content: "Madam Jii Birthday" },
+      { property: "og:title", content: "Happy Birthday Madam Jii" },
       {
         property: "og:description",
         content: "A birthday scrapbook page: live age counter, memories and polaroids.",

@@ -10,7 +10,7 @@ const Scrapbook = lazy(() => import("@/components/Scrapbook"));
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Madam Jii Birthday — A Scrapbook Of Us" },
+      { title: "Happy Birthday Madam Jii — A Scrapbook Of Us" },
       {
         name: "description",
         content:
