@@ -93,7 +93,7 @@ export default function Scrapbook() {
 
   useEffect(() => {
     const update = () => {
-      const h = Math.min(500, Math.max(320, window.innerHeight * 0.72));
+      const h = Math.min(500, Math.max(260, window.innerHeight * 0.62));
       setSize({ w: Math.round(h * 0.8), h: Math.round(h) });
     };
     update();
@@ -139,7 +139,7 @@ export default function Scrapbook() {
         </div>
       </HTMLFlipBook>
       <p className="hero-mono mt-6 text-[10px] uppercase tracking-[0.25em] text-mute">
-        Drag a page corner to turn
+        Tap or drag a page corner to turn
       </p>
     </div>
   );

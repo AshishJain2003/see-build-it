@@ -1,4 +1,4 @@
-import { useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
+import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 
 const POLAROIDS = [
   { src: "/ref/girl3.jpg", caption: "Cutie 🥹", pos: "top-[8%] left-[8%]", rot: "-8deg" },
@@ -14,7 +14,19 @@ const POLAROIDS = [
 
 type Offset = { x: number; y: number };
 
+function useIsMobile(breakpoint = 768) {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setMobile(window.innerWidth < breakpoint);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, [breakpoint]);
+  return mobile;
+}
+
 export function PolaroidBoard() {
+  const isMobile = useIsMobile();
   const [offsets, setOffsets] = useState<Record<string, Offset>>({});
   const [order, setOrder] = useState<string[]>([]);
   const [dragging, setDragging] = useState<string | null>(null);
@@ -42,6 +54,43 @@ export function PolaroidBoard() {
     setDragging(null);
   };
 
+  /* ---- MOBILE: vertical scrollable grid of polaroids ---- */
+  if (isMobile) {
+    return (
+      <section className="relative flex min-h-screen w-full flex-col overflow-y-auto bg-board">
+        <div className="pointer-events-none absolute inset-0 board-grid" />
+        <div className="pointer-events-none absolute inset-0 board-vignette" />
+
+        <div className="relative z-10 grid grid-cols-2 gap-4 px-4 py-8">
+          {POLAROIDS.map((p) => (
+            <div
+              key={p.src}
+              className="mx-auto w-full max-w-[170px] select-none rounded-xl bg-white p-2 shadow-xl"
+              style={{ rotate: p.rot }}
+            >
+              <div className="relative">
+                <img
+                  src={p.src}
+                  alt={p.caption}
+                  draggable={false}
+                  loading="lazy"
+                  className="aspect-square w-full rounded-lg object-cover"
+                />
+                <div className="pointer-events-none absolute -right-3 -top-3 z-50 text-2xl drop-shadow-md">
+                  ❤️
+                </div>
+                <p className="hand mt-2 text-center text-xl font-semibold text-neutral-700">
+                  {p.caption}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  /* ---- DESKTOP: original draggable scattered board ---- */
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-board">
       <div className="pointer-events-none absolute inset-0 board-grid" />

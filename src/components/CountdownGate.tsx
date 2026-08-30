@@ -63,7 +63,7 @@ export function CountdownGate({ children }: { children: ReactNode }) {
           This page unlocks on your birthday — 14th September, at midnight sharp.
         </p>
 
-        <div className="mt-12 flex items-start gap-6 sm:gap-12">
+        <div className="mt-12 flex items-start gap-4 sm:gap-6 md:gap-12">
           <Unit value={days} label="Days" />
           <Unit value={hours} label="Hours" />
           <Unit value={minutes} label="Minutes" />

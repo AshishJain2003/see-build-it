@@ -57,7 +57,7 @@ export function Hero() {
 
       <div
         ref={wrapRef}
-        className="pointer-events-none absolute left-1/2 top-50 w-screen -translate-x-1/2 -rotate-10"
+        className="pointer-events-none absolute left-1/2 top-[55%] w-screen -translate-x-1/2 -rotate-10 sm:top-50"
       >
         <div
           className="relative"
@@ -78,7 +78,7 @@ export function Hero() {
                 animationDelay: `-${(i / ITEMS.length) * DURATION}s`,
               }}
             >
-              <div className="h-14 w-14 overflow-hidden border border-ink/15 bg-ink/5">
+              <div className="h-10 w-10 overflow-hidden border border-ink/15 bg-ink/5 sm:h-14 sm:w-14">
                 <img
                   src={src}
                   alt={`Memory ${(i % PHOTOS.length) + 1}`}
